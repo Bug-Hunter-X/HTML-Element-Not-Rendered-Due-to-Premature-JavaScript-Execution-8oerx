@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text will be hidden if JavaScript is enabled.
+  </div>
+  <script>
+    document.getElementById("myDiv").style.display = "none";
+    // The bug is that this script runs *before* the div is fully parsed.
+    // In some browsers this will cause the div to be completely skipped
+    // and not rendered at all, even if the script later tried to show it.
+  </script>
+</body>
+</html>
